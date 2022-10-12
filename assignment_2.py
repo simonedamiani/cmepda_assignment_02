@@ -69,7 +69,7 @@ class Proton(Particle):
 
 
 class Alpha(Particle):
-    """Class describing a proton. It inherits from class Particle"""
+    """Class describing an alpha particle. It inherits from class Particle"""
     def __init__(self, beta=0.):
         Particle.__init__(self, 'Alpha', 3727.4, 2, beta)
 
