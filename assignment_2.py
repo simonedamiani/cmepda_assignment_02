@@ -29,7 +29,7 @@ class Particle:
             exit()
 
     @property
-    def gamma(self):
+    def gamma(self):  # dimensionless
         return math.sqrt(1/(1-(self.beta**2)))
 
     @gamma.setter
@@ -37,7 +37,7 @@ class Particle:
         self.beta = math.sqrt(1-(1/(gamma**2)))
 
     @property
-    def momentum(self):
+    def momentum(self):  # kg*m/s
         return self.beta*self.gamma*self.mass*conv_MeV_kg*c
 
     @momentum.setter
@@ -45,7 +45,7 @@ class Particle:
         self.beta = momentum/(self.gamma*self.mass*conv_MeV_kg*c)
 
     @property
-    def energy(self):
+    def energy(self):  # kinetic energy, MeV
         return (self.gamma-1)*self.mass
 
     @energy.setter
@@ -75,16 +75,3 @@ class Alpha(Particle):
 
     def __repr__(self):
         return Particle.__repr__(self)
-
-
-if __name__ == '__main__':
-    electron = Particle('Electron', 0.511, -1, 0.5)
-    print(electron)
-
-    proton = Proton()
-    print(proton)
-
-    alpha = Alpha()
-    print(alpha)
-
-    print(electron.gamma)
